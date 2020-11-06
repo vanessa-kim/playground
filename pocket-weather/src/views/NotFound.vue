@@ -1,14 +1,13 @@
 <template>
-  <div id="app">
-    <router-view />
-  </div>
+  Page Not Found
 </template>
 
 <script>
 export default {
-  name: 'App',
+
 }
 </script>
 
 <style>
+
 </style>
