@@ -1,13 +1,19 @@
-import { createWebHistory, createRouter } from 'vue-router';
-
-const history = createWebHistory();
+import { createWebHashHistory, createRouter } from 'vue-router';
 
 const router = createRouter({
-  history,
+  history: createWebHashHistory(),
   routes: [
     {
       path: '/',
       component: () => import('@/views/AppContent.vue'),
+    },
+    {
+      path: '/logo',
+      component: () => import('@/components/WeatherLogoStatic.vue'),
+    },
+    {
+      path: '/logoAnimate',
+      component: () => import('@/components/WeatherLogoAnimate.vue'),
     },
   ]
 });
