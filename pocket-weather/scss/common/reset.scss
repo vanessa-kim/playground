@@ -1,0 +1,112 @@
+/* Reset all style in the app */
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow-y: auto;
+  font-size: 13px;
+  font-family: 'NanumBarunGothic', Helvetica, Sans-serif;
+  color: #2d2d2d;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+  margin: 0;
+  padding: 0;
+}
+
+div, 
+h1, h2, h3, h4, h5, h6, 
+ul, ol,li, dl, dt, dd,  
+form, fieldset, legend, input, p,
+table, tr, th, td {
+  margin: 0;
+  padding: 0;
+  letter-spacing: -0.5px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-family: 'NanumBarunGothic', Helvetica, Sans-serif;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+fieldset, img {
+  border: none;
+}
+
+p, span, strong, b, a, li {
+  font-family: 'NanumBarunGothic', Helvetica, Sans-serif;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+}
+
+caption, hr {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+}
+
+legend {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  font-size: 0;
+  line-height: 0;
+}
+
+a {
+  color: #2d2d2d;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  
+  &:hover, 
+  &:active {
+    text-decoration: none;
+  }
+}
+
+input:focus,
+select:focus, 
+option:focus, 
+textarea:focus, 
+button:focus {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* html5 */
+address, article, aside, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+textarea {
+  font-size: 13px;
+  border: 1px solid #ddd;
+  padding: 0 5px;
+  font-family: 'NanumBarunGothic', Helvetica, Sans-serif;
+  color: #2d2d2d;
+  line-height: 20px;
+  resize: none;
+  overflow: auto;
+}
+
