@@ -1,5 +1,6 @@
 <template>
   <div>
+    <user-name />
     <user-clock />
     <button @click="getCurrentWeatherData">getWeather</button>
     {{ currentWeather }}
@@ -11,11 +12,13 @@ import api from '@/api/weather';
 
 // Components
 import UserClock from '@/components/UserClock';
+import UserName from '@/components/UserName';
 
 export default {
   name: 'AppContent',
   components: {
     UserClock,
+    UserName,
   },
   data() {
     return {
