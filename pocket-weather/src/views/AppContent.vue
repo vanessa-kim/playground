@@ -4,6 +4,7 @@
     <user-clock />
     <button @click="getCurrentWeatherData">getWeather</button>
     {{ currentWeather }}
+    <todo-create />
   </div>
 </template>
 
@@ -13,12 +14,14 @@ import api from '@/api/weather';
 // Components
 import UserClock from '@/components/UserClock';
 import UserName from '@/components/UserName';
+import TodoCreate from '@/components/TodoCreate';
 
 export default {
   name: 'AppContent',
   components: {
     UserClock,
     UserName,
+    TodoCreate,
   },
   data() {
     return {
