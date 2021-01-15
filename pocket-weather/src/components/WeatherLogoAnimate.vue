@@ -152,7 +152,7 @@
         </path>
       </g>
     </svg>
-    <span>POCKET WEATHER</span>
+    <!-- <span>POCKET WEATHER</span> -->
   </div>
 </template>
 
@@ -162,7 +162,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scopped>
 /* logo font face */
 @font-face {
   font-family: 'UNICAONE';
@@ -174,6 +174,10 @@ export default {
   width: 120px;
   display: flex;
   flex-direction: column;
+
+  svg {  
+    margin-left: -5px;
+  }
 }
 
 .logo-group span{

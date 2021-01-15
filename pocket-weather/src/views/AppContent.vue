@@ -1,9 +1,7 @@
 <template>
   <div>
     <user-name />
-    <user-clock />
-    <button @click="getCurrentWeather">getWeather</button>
-    {{ currentWeather }}
+    <weather-indicator :weather="currentWeather" />
     <air-pollution-indicator :airPollution="currentAirPollution" />
     <hr>
     <todo-list />
@@ -15,17 +13,17 @@ import api from '@/api/weather';
 
 // Components
 import AirPollutionIndicator from '@/components/AirPollutionIndicator';
-import UserClock from '@/components/UserClock';
 import UserName from '@/components/UserName';
 import TodoList from '@/components/TodoList';
+import WeatherIndicator from '@/components/WeatherIndicator';
 
 export default {
   name: 'AppContent',
   components: {
     AirPollutionIndicator,
-    UserClock,
     UserName,
     TodoList,
+    WeatherIndicator,
   },
   data() {
     return {
