@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import Movie from '../components/Movie';
 import styles from './Home.module.scss';
 
@@ -20,25 +19,30 @@ function Home() {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div>
       { loading ? 
-        <div className={styles.loading}>
-          <h1>Loading...</h1>
-          <div className={styles.loadingBar} />
-        </div> : 
-        <div className={styles.movies}>
-          {movies.map(movie => (
-            <Movie 
-              key={movie.id}
-              id={movie.id}
-              year={movie.year}
-              coverImage={movie.medium_cover_image} 
-              title={movie.title}
-              summary={movie.summary}
-              genres={movie.genres}  
-            />
-          ))}
-        </div> 
+        <div className={styles.container}>
+          <div className={styles.loading}>
+            <h1>Loading...</h1>
+            <div className={styles.loadingBar} />
+          </div>
+        </div>: 
+        <div className={styles.moviesWrap}>
+          <h1 className={styles.moviesTitle}>Home</h1>
+          <div className={styles.movies}>      
+            {movies.map(movie => (
+              <Movie 
+                key={movie.id}
+                id={movie.id}
+                year={movie.year}
+                coverImage={movie.medium_cover_image} 
+                title={movie.title}
+                summary={movie.summary}
+                genres={movie.genres}  
+              />
+            ))}
+          </div> 
+        </div>
       }
     </div>
   );
