@@ -200,7 +200,7 @@ function Coin() {
               </OverviewItem>
               <OverviewItem>
                 <span>Price:</span>
-                <span>{tickersData?.quotes.USD.price}</span>
+                <span>{tickersData?.quotes?.USD?.price || 0}</span>
               </OverviewItem>
             </Overview>
             <Description>{infoData?.description}</Description>

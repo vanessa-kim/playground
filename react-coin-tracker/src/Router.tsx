@@ -7,11 +7,11 @@ function Router() {
   return <BrowserRouter>
     <GlobalHeader />
     <Switch>
+      <Route path="/playground">
+        <Coins />
+      </Route>
       <Route path="/:coinId">
         <Coin />
-      </Route>
-      <Route path="/">
-        <Coins />
       </Route>
     </Switch>
   </BrowserRouter>

@@ -73,7 +73,7 @@ function GlobalHeader() {
   return (
     <Header>
       { isRoot ? null : (
-        <Link to="/">
+        <Link to="/playground">
           <BackBtn>
             <FaArrowLeft />
             Back
