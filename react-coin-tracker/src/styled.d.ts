@@ -7,5 +7,9 @@ declare module "styled-components" {
     accentColor: string;
     cardColor: string;
     cardBorderColor?: string;
+    headerColor: string;
+    headerBtnBg: string;
+    headerBtnAccent: string;
+    headerBtnShadow: string;
   }
 }

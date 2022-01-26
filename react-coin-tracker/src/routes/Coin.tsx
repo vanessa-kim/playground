@@ -1,12 +1,13 @@
 import { useParams, useLocation, Switch, Route, useRouteMatch } from 'react-router';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Price from './Price';
 import Chart from './Chart';
 import { useQuery } from 'react-query';
 import { fetchCoinInfo, fetchCoinTickers } from '../api';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { useSetRecoilState } from 'recoil';
+import { isRootAtom } from '../atoms';
 
 
 const Container = styled.div`
@@ -34,7 +35,8 @@ const Loader = styled.span`
 const Overview = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: ${props => props.theme.headerBtnAccent};
+  background-color: ${props => props.theme.headerBtnAccent};
   padding: 10px 20px;
   border-radius: 10px;
 `;
@@ -65,7 +67,8 @@ const Tab = styled.span<{ isActive: boolean }>`
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 400;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+  border: 1px solid ${props => props.theme.textColor};
   padding: 7px 0px;
   border-radius: 10px;
   color: ${(props) =>
@@ -147,9 +150,6 @@ function Coin() {
   const {isLoading: tickersLoading, data: tickersData} = useQuery<priceData>(
     ["tickers", coinId], 
     () => fetchCoinTickers(coinId),
-    {
-      refetchInterval: 1000,
-    }
   );
   
   // const [loading, setLoading] = useState(true);
@@ -169,14 +169,19 @@ function Coin() {
   //   })();
   // }, [coinId]);
   const loading = infoLoading || tickersLoading;
+
+  const setRootAtom = useSetRecoilState(isRootAtom);
+  setRootAtom(false);
   return (
   <>
     <Container>
-      <Helmet>
-        <title>
-          {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
-        </title>
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <title>
+            {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
+          </title>
+        </Helmet>
+      </HelmetProvider>
       <Header>
         <Title>{state?.name ? state.name : loading ? "Loading..." : infoData?.name}</Title>
       </Header>
@@ -225,7 +230,7 @@ function Coin() {
             
             <Switch>
               <Route path={`/${coinId}/price`}>
-                <Price />
+                <Price coinId={coinId}/>
               </Route>
               <Route path={`/${coinId}/chart`}>
                 <Chart coinId={coinId} />
